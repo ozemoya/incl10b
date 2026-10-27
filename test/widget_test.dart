@@ -4,9 +4,9 @@ import 'package:signup_app/main.dart';
 
 void main() {
   testWidgets('validates all fields before demo signup', (tester) async {
-    await tester.pumpWidget(const OrbitGuildApp());
-    await tester.ensureVisible(find.text('Join the guild'));
-    await tester.tap(find.text('Join the guild'));
+    await tester.pumpWidget(const MyApp());
+    await tester.ensureVisible(find.text('Sign Up'));
+    await tester.tap(find.text('Sign Up'));
     await tester.pump();
     expect(find.text('Please enter your name'), findsOneWidget);
     expect(find.text('Please enter your email'), findsOneWidget);
@@ -18,18 +18,18 @@ void main() {
     await tester.enterText(fields.at(2), '123');
     tester.testTextInput.hide();
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Join the guild'));
-    await tester.tap(find.text('Join the guild'));
+    await tester.ensureVisible(find.text('Sign Up'));
+    await tester.tap(find.text('Sign Up'));
     await tester.pump();
-    expect(find.text('Enter a valid email address'), findsOneWidget);
-    expect(find.text('Use at least 6 characters'), findsOneWidget);
+    expect(find.text('Please enter a valid email'), findsOneWidget);
+    expect(find.text('Password must be at least 6 characters'), findsOneWidget);
 
     await tester.enterText(fields.at(1), 'myles@example.com');
     await tester.enterText(fields.at(2), 'long-demo-password');
     tester.testTextInput.hide();
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Join the guild'));
-    await tester.tap(find.text('Join the guild'));
+    await tester.ensureVisible(find.text('Sign Up'));
+    await tester.tap(find.text('Sign Up'));
     await tester.pump();
     expect(
       find.text('Demo signup complete — your form passed validation!'),
@@ -38,7 +38,7 @@ void main() {
   });
 
   testWidgets('local tip can load, fail, and retry', (tester) async {
-    await tester.pumpWidget(const OrbitGuildApp());
+    await tester.pumpWidget(const MyApp());
     await tester.ensureVisible(find.text('Get a signup tip'));
     await tester.tap(find.text('Get a signup tip'));
     await tester.pump();

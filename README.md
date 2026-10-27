@@ -1,6 +1,6 @@
-# Orbit Guild Signup Demo
+# Fun Signup App
 
-Orbit Guild is a Flutter signup-form demo for In-Class Activity 10b. Its lavender cards and purple hero are based on the visual reference chosen for the project. The screen validates a name, email address, and password before showing a success SnackBar. It does not create an account or send data to a server.
+Fun Signup App is a Flutter form demo for In-Class Activity 10b. Its simple purple layout follows the class signup example, with a lavender banner inspired by the chosen visual reference. The screen validates a name, email address, and password before showing a success SnackBar. It does not create an account or send data to a server.
 
 ## Team and scope
 
@@ -17,20 +17,20 @@ The tip method never reads the name, email, or password controllers. Form valida
 
 ## Widget tree and test sketch
 
-`OrbitGuildApp → MaterialApp → SignupPage → Scaffold → SingleChildScrollView → Form → TextFormField` describes the main form branch. `SignupPage` is stateful because it owns controllers and the tip loading/result/error status. `OrbitGuildApp` is stateless because it only supplies the theme and home screen. Controllers are disposed when the page is removed.
+`MyApp → MaterialApp → SignupPage → Scaffold → SingleChildScrollView → Form → TextFormField` describes the main form branch. `SignupPage` is stateful because it owns controllers and the tip loading and error state. `MyApp` is stateless because it only supplies the theme and home screen. Controllers are disposed when the page is removed.
 
 Run `flutter analyze` and `flutter test` from this folder. The widget tests cover empty fields, malformed email, short password, valid demo submission, tip loading, tip result, local failure, and retry. For a manual check, run the app on an Android emulator, try the invalid and valid inputs, then turn off networking and repeat the tip flow.
 
 ## Myles reflection
 
-**Question 1 — Trace the local tip feature.** Tapping the tip button changes `tipStatus` to loading, so the card shows a progress indicator. After the local delay, the page chooses one preset string and rebuilds with that text. The Test error action switches to an error message; Retry tip runs the same local method again and returns to a tip.
+**Question 1 — Trace the local tip feature.** Tapping the tip button sets `_isLoading` to true, so the card shows a progress indicator. After the local delay, the page chooses one preset string and rebuilds with that text. The Test error action shows an error message; Retry tip calls `_getTip` again and returns to a tip.
 
 **Question 3 — Category and privacy.** The category is always `password_help`. The tip selector ignores the name, email, and password fields, so a tip never includes personal form data or changes validation. That also makes the behavior predictable while the device is offline.
 
 ## Eziz reflection
 
-**Question 2 — Why validation stays local.** Local validation is fast, reliable, and consistent. AI could give inconsistent results if it were allowed to approve signup. Eziz did not give a specific bad-decision example in his supplied answer.
+**Question 2 — Why validation stays local.** Local validation is fast, reliable, and consistent. AI could give inconsistent results if it were allowed to approve signup. For example, it might accept a five-character password even though the form requires six characters.
 
-**Question 4 — Test that changed the implementation.** The simulated error test case changed what was implemented. Eziz did not describe the observation in his supplied answer.
+**Question 4 — Test that changed the implementation.** The simulated error test broke the tip flow. That led to an error message and a Retry tip button, so a failed tip does not stop the form from working.
 
 Eziz's implementation contribution has not been provided, so it is not attributed here.
