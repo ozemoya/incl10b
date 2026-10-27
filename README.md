@@ -21,7 +21,7 @@ The tip method never reads the name, email, or password controllers. Form valida
 
 Run `flutter analyze` and `flutter test` from this folder. The widget tests cover empty fields, malformed email, short password, valid demo submission, tip loading, tip result, local failure, and retry. For a manual check, run the app on an Android emulator, try the invalid and valid inputs, then turn off networking and repeat the tip flow.
 
-## Myles reflection draft
+## Myles reflection
 
 **Question 1 — Trace the local tip feature.** Tapping the tip button changes `tipStatus` to loading, so the card shows a progress indicator. After the local delay, the page chooses one preset string and rebuilds with that text. The Test error action switches to an error message; Retry tip runs the same local method again and returns to a tip.
 
