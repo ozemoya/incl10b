@@ -47,17 +47,21 @@ void main() {
     expect(find.textContaining('Use a long, unique password'), findsOneWidget);
     expect(
       find.text('Preset demo tip, not live AI. No form data is used.'),
-      findsOneWidget,
+      findsNothing,
     );
 
+    await tester.ensureVisible(find.text('Test error'));
     await tester.tap(find.text('Test error'));
     await tester.pump(const Duration(milliseconds: 700));
     expect(
       find.text('The demo tip could not load. Your form is unaffected.'),
       findsOneWidget,
     );
+    await tester.ensureVisible(find.text('Retry tip'));
     await tester.tap(find.text('Retry tip'));
     await tester.pump(const Duration(milliseconds: 700));
     expect(find.textContaining('Avoid names and birthdays'), findsOneWidget);
   });
 }
+
+

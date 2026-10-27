@@ -267,14 +267,6 @@ class _SignupPageState extends State<SignupPage> {
                                 ),
                             ],
                           ),
-                          const Text(
-                            'Preset demo tip, not live AI. No form data is used.',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          const Text(
-                            'Local category: password_help',
-                            style: TextStyle(fontSize: 12),
-                          ),
                         ],
                       ),
                     ),
