@@ -29,8 +29,8 @@ Run `flutter analyze` and `flutter test` from this folder. The widget tests cove
 
 ## Eziz reflection
 
-**Question 2 — Why validation stays local.** Local validation is fast, reliable, and consistent. If AI approved signups, it could make inconsistent decisions. For example, it might accept a password that is shorter than the six-character rule after giving a tip.
+**Question 2 — Why validation stays local.** Local validation is fast, reliable, and consistent. AI could give inconsistent results if it were allowed to approve signup. Eziz did not give a specific bad-decision example in his supplied answer.
 
-**Question 4 — Test that changed the implementation.** The simulated error test case changed the tip flow. When the tip fails to load, the app now shows an error message and a Retry tip button, while the form remains available.
+**Question 4 — Test that changed the implementation.** The simulated error test case changed what was implemented. Eziz did not describe the observation in his supplied answer.
 
 Eziz's implementation contribution has not been provided, so it is not attributed here.
