@@ -45,7 +45,10 @@ void main() {
     expect(find.text('Choosing a preset tip...'), findsOneWidget);
     await tester.pump(const Duration(milliseconds: 700));
     expect(find.textContaining('Use a long, unique password'), findsOneWidget);
-    expect(find.text('Preset demo tip—not live AI.'), findsOneWidget);
+    expect(
+      find.text('Preset demo tip, not live AI. No form data is used.'),
+      findsOneWidget,
+    );
 
     await tester.tap(find.text('Test error'));
     await tester.pump(const Duration(milliseconds: 700));
